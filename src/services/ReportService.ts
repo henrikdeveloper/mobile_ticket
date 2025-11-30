@@ -5,13 +5,13 @@ import { Ticket } from '../models/Ticket';
 
 class ReportService {
     /**
-     * Gera relatório diário
+     * gera relatório diário
      */
     async generateDailyReport(date: string): Promise<{
         stats: DailyStats | null;
         tickets: ServiceRecord[];
     }> {
-        // Atualiza estatísticas antes de gerar relatório
+        // atualiza estatísticas antes de gerar relatório
         await databaseService.updateDailyStats(date);
 
         const stats = await databaseService.getDailyStats(date);
@@ -26,7 +26,7 @@ class ReportService {
     }
 
     /**
-     * Gera relatório mensal
+     * gera relatório mensal
      */
     async generateMonthlyReport(year: number, month: number): Promise<{
         summary: {
@@ -45,7 +45,7 @@ class ReportService {
     }> {
         const dailyStats = await databaseService.getMonthlyStats(year, month);
 
-        // Calcula totais do mês
+        // calcula totais do mês
         const summary = {
             totalIssued: dailyStats.reduce((sum, day) => sum + day.totalIssued, 0),
             totalAttended: dailyStats.reduce((sum, day) => sum + day.totalAttended, 0),
@@ -58,7 +58,7 @@ class ReportService {
             avgServiceTime: this.calculateMonthlyAvgServiceTime(dailyStats)
         };
 
-        // Obtém todos os tickets do mês
+        // obtém todos os tickets do mês
         const allTickets: ServiceRecord[] = [];
         for (const dayStat of dailyStats) {
             const tickets = await ticketService.getTicketsByDate(dayStat.date);
@@ -73,7 +73,7 @@ class ReportService {
     }
 
     /**
-     * Exporta relatório em formato CSV
+     * exporta relatório em formato CSV
      */
     exportToCSV(tickets: ServiceRecord[]): string {
         const headers = [
@@ -107,14 +107,14 @@ class ReportService {
     }
 
     /**
-     * Exporta estatísticas em formato JSON
+     * exporta estatísticas em formato JSON
      */
     exportStatsToJSON(stats: DailyStats | any): string {
         return JSON.stringify(stats, null, 2);
     }
 
     /**
-     * Gera relatório de tempo médio de atendimento
+     * gera relatório de tempo médio de atendimento
      */
     async generateServiceTimeReport(date: string): Promise<{
         overall: number;
@@ -142,7 +142,7 @@ class ReportService {
     }
 
     /**
-     * Gera relatório de taxa de abandono
+     * gera relatório de taxa de abandono
      */
     async generateAbandonmentReport(date: string): Promise<{
         total: number;
@@ -219,7 +219,7 @@ class ReportService {
     }
 
     /**
-     * Baixa relatório como arquivo
+     * baixa relatório como arquivo
      */
     downloadReport(content: string, filename: string, type: 'csv' | 'json'): void {
         const mimeType = type === 'csv' ? 'text/csv' : 'application/json';
