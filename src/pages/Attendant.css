@@ -1,0 +1,178 @@
+.attendant-content {
+    --background: #f5f5f5;
+}
+
+.attendant-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.current-ticket-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.current-ticket-card ion-card-title {
+    color: white;
+}
+
+.current-ticket-display {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.ticket-number-large {
+    font-size: 4rem;
+    font-weight: bold;
+    letter-spacing: 5px;
+    margin: 10px 0;
+}
+
+.ticket-type-badge-large {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    margin: 20px 0;
+}
+
+.service-info {
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+}
+
+.info-row ion-icon {
+    font-size: 1.5rem;
+}
+
+.info-row p {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.finish-button {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    --background: #2ecc71;
+    --background-hover: #27ae60;
+}
+
+.call-next-card {
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.call-next-content {
+    text-align: center;
+    padding: 20px;
+}
+
+.call-icon {
+    font-size: 5rem;
+    color: #667eea;
+    margin-bottom: 15px;
+    animation: ring 2s ease-in-out infinite;
+}
+
+@keyframes ring {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    10%,
+    30% {
+        transform: rotate(-10deg);
+    }
+
+    20%,
+    40% {
+        transform: rotate(10deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+}
+
+.call-next-content h2 {
+    font-size: 2rem;
+    margin: 20px 0;
+    color: #333;
+}
+
+.call-next-content p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.call-button {
+    font-size: 1.3rem;
+    font-weight: bold;
+    --padding-top: 20px;
+    --padding-bottom: 20px;
+}
+
+.instructions-card {
+    margin-top: 20px;
+}
+
+.instructions-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.instructions-list li {
+    padding: 12px 0;
+    padding-left: 30px;
+    position: relative;
+    font-size: 1rem;
+    color: #666;
+    border-bottom: 1px solid #eee;
+}
+
+.instructions-list li:last-child {
+    border-bottom: none;
+}
+
+.instructions-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #667eea;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .ticket-number-large {
+        font-size: 3.5rem;
+    }
+
+    .call-icon {
+        font-size: 4rem;
+    }
+
+    .call-next-content h2 {
+        font-size: 1.5rem;
+    }
+}
